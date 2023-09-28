@@ -4,10 +4,10 @@ dotenv.config();
 import cors from "cors";
 import taskRouter from "./routes/taskRouter.js";
 
-import path from "path";
-import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// import path from "path";
+// import { fileURLToPath } from "url";
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -18,8 +18,8 @@ app.use(express.json()); // body parser erlaubt uns auf Daten aus dem req.body z
 
 app.use("/tasks", taskRouter);
 
-app.use("/", express.static(path.join(__dirname, "/dist")));
-app.get("/*", (req, res) => res.sendFile(__dirname + "/dist/index.html"));
+// app.use("/", express.static(path.join(__dirname, "/dist")));
+// app.get("/*", (req, res) => res.sendFile(__dirname + "/dist/index.html"));
 
 app.use((req, res, next)=>{
     res.status(404).send("Page not found!");
